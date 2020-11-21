@@ -1,0 +1,34 @@
+<div data-bind="scope: 'example-scope'">
+<!--    <h2 data-bind="text: message1"></h2>-->
+<!--    <h2 data-bind="text: message2"></h2>-->
+
+    <form method="post" data-bind="event: { submit: submitImport }">
+        <span>Choose Excel or CSV File : </span>
+        <input type="file"
+               data-bind="value:importfile">
+        <br>
+        <button type="submit">Import</button>
+    </form>
+
+    <form method="POST" data-bind="event: { submit: submitComment }">
+            <input name="form_key" type="hidden" value="<?php echo $block->getFormKey(); ?>" />
+            <textarea data-bind="value: commentTextArea"></textarea>
+            <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "example-scope": {
+                    "component": "Magetop_Helloworld/js/test",
+                    "exampleMessage1": "<?= __('Hello Magento Stack Exchange!') ?>",
+                    "exampleMessage2":"<?php echo "Huy dep trai"; ?>"
+                }
+            }
+        }
+    }
+}
+</script>
